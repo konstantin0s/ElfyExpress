@@ -1,13 +1,8 @@
 require 'rails_helper'
 
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
-
 RSpec.describe User, type: :model do
   describe "validations" do
-
+    it { is_expected.to validate_presence_of (:email) }
+    it { is_expected.to validate_presence_of (:password) }
   end
 end

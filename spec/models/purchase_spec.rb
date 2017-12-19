@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Purchase, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    it { is_expected.to validate_presence_of (:bought) }
+    it { is_expected.to validate_presence_of (:total_price) }
+    it { is_expected.to validate_presence_of (:total_amount) }
+    it { is_expected.to validate_presence_of (:user) }
+    it { is_expected.to validate_presence_of (:product) }
+  end
 end
