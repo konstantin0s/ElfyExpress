@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219125247) do
+ActiveRecord::Schema.define(version: 20171219134456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "image_url"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "street"
+    t.string "city"
+    t.string "postal_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer "total_amount"
+    t.decimal "total_price"
+    t.boolean "bought"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
+  end
+
+  create_table "selections", force: :cascade do |t|
+    t.integer "amount"
+    t.decimal "total_price"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.bigint "purchase_id"
+    t.index ["product_id"], name: "index_selections_on_product_id"
+    t.index ["purchase_id"], name: "index_selections_on_purchase_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +81,8 @@ ActiveRecord::Schema.define(version: 20171219125247) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "profiles", "users"
+  add_foreign_key "purchases", "users"
+  add_foreign_key "selections", "products"
+  add_foreign_key "selections", "purchases"
 end
