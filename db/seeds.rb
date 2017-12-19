@@ -5,10 +5,10 @@ Category.destroy_all
 Purchases.destroy_all
 Products.destroy_all
 
-#users
+#user
 users << User.create(
-      email: []
-      password: []
+    email: Faker::Internet.email,
+    password: "abcd1234"
     )
 end
 
