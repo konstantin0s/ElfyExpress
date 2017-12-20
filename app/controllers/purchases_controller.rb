@@ -9,7 +9,7 @@ class PurchasesController < ApplicationController
   def update
     if @purchase.update(purchase_params)
 
-      end
+      
 
       redirect_to @purchase, notice: "Cart updated"
     else
