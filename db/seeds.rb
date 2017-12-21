@@ -59,3 +59,5 @@ product7 = Product.create (
   price: 6 ,
   description: "Warm and fluffy. Get your Santa's socks today before stock runs out.",
   category_id: "Ornaments"} )
+
+puts "gave it #{User.count} user"
