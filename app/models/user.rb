@@ -5,11 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_many :purchases, dependent: :destroy
 
   def full_name
-    return profile.full_name if profile?
-
-    email
+    profile.full_name
   end
 
   def profile?
