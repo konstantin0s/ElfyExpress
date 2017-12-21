@@ -3,31 +3,36 @@ class PurchasesController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @purchases = current_user.purchase
+    @purchase = current_user.purchase
+  end
+
+  def create
+    @purchase = current_user.purchase.create(purchase_params.merge({}))
+    @purchase.set_total_price
+    @purchase.set_total_amount
   end
 
   def update
-    if @purchase.update(purchase_params)
-      redirect_to @purchase, notice: "Cart updated"
-    else
-      render :edit
-    end
+   if @purchase.update(purchase_params)
+    redirect_to @purchase, notice: "Cart updated"
+   else
+    render :edit
+   end
   end
 
   def edit
-
+    set_purchase
   end
 
-private
+  private
 
   def set_purchase
     @purchase = Purchase.find(params[:id])
   end
 
   def purchase_params
-    params
-      .require(:purchase)
-      .permit(
-      )
+   params
+     .require(:purchase)
+     .permit()
   end
 end
