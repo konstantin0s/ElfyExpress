@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_many :purchases, dependent: :destroy
 
   def full_name
     profile.full_name

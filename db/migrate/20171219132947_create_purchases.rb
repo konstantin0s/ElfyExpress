@@ -3,7 +3,7 @@ class CreatePurchases < ActiveRecord::Migration[5.1]
     create_table :purchases do |t|
       t.integer :total_amount
       t.decimal :total_price
-      t.boolean :bought
+      t.boolean :bought, :default => false
 
       t.timestamps
     end
