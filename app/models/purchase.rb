@@ -3,10 +3,10 @@ class Purchase < ApplicationRecord
   has_many :products, through: :selections
   belongs_to :user
 
-  validates :total_amount, presence: true
   validates :total_price, presence: true
   validates :bought, presence: true
   validates :user, presence: true
+  validates :total_amount, presence: true
 
   #   def test12
 #
@@ -23,9 +23,10 @@ class Purchase < ApplicationRecord
 #     self.item.sum(:price)
   # end
 
-  def total_amount
-    self.amount.sum(:price)
-  end
+  #below does not work. should set total_price from all selection.total_price
+    # def total_amount
+    #   self.amount.sum(:price)
+    # end
 
 
 end
