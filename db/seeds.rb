@@ -1,7 +1,61 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Profile.destroy_all
+User.destroy_all
+Category.destroy_all
+Purchase.destroy_all
+Product.destroy_all
+
+
+#user
+user1 = User.create( {email: "admin@mail.com", password: "123456"} )
+
+#categories
+
+ornaments = Category.create!(name: "Ornaments")
+lights = Category.create!(name: "Lights")
+trees = Category.create!(name: "Trees")
+tree_stands = Category.create!(name: "Tree Stands")
+kittens = Category.create!(name: "Kittens")
+garland = Category.create!(name: "Garland")
+
+product1 = Product.create (
+  {name: "Christmas balls",
+    price: 2 ,
+    description: "We have Christmas balls in every color and every shape to festoon your tree.",
+    category_id: "Ornaments"}
+  )
+
+product2 = Product.create (
+  {name: "Tree lights",
+   price: 15 ,
+    description:"Lit up your tree with these lights and leave a wonderful impression on your friends and family.",
+    category_id: "Lights" } )
+
+product3 = Product.create (
+  {name: "Christmas Tree",
+   price: 150 ,
+   description: "Our trees are grown and imported from the lush mountains of Switzerland, we reserve only the highest quality for our customers.",
+   category_id: "Trees" } )
+
+product4 = Product.create (
+  {name: "Tree stand",
+    price:20 ,
+    description: "Robust pieces that will make sure your tree stands tall during the festive period.",
+    category_id: "Tree Stands"} )
+
+product5 = Product.create (
+  {name: "Kitten",
+    price: 100 ,
+    description: "The cutest little kittens ready to put a smile on your face. We are looking for individuals with a genuine love for cats and kittens.",
+    category_id: "Kittens" } )
+
+product6 = Product.create (
+  {name: "Flower Garland",
+    price: 25 ,
+    description: "Intricately designed flower garlands.",
+    category_id: "Garland"} )
+
+product7 = Product.create (
+  {name: "Socks",
+  price: 6 ,
+  description: "Warm and fluffy. Get your Santa's socks today before stock runs out.",
+  category_id: "Ornaments"} )
