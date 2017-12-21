@@ -4,7 +4,6 @@ class Purchase < ApplicationRecord
   belongs_to :user
 
   validates :total_price, presence: true
-  validates :bought, presence: true
   validates :user, presence: true
   validates :total_amount, presence: true
 
