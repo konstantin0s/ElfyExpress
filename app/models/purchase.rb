@@ -8,5 +8,24 @@ class Purchase < ApplicationRecord
   validates :bought, presence: true
   validates :user, presence: true
 
+  #   def test12
+#
+#       self.purchase.curent_user do |user|
+#
+#       total_amount = []
+#       self.selection :total_price
+#
+#       @Selection. { |i| @sum  i }
+#   end
+#
+# def
+#   def total_item
+#     self.item.sum(:price)
+  # end
+
+  def total_amount
+    self.amount.sum(:price)
+  end
+
 
 end

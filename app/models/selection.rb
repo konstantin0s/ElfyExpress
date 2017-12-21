@@ -8,4 +8,8 @@ class Selection < ApplicationRecord
   validates :product_id, presence: true
   validates :purchase_id, presence: true
 
+  def calculate_total_price
+    self.total_price = amount * price
+  end
+
 end

@@ -7,9 +7,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
 
   def full_name
-    return profile.full_name if profile?
-
-    email
+    profile.full_name
   end
 
   def profile?
