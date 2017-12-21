@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
-  
+
   devise_for :users
 
 
 
   resources :users do
     resources :purchases, only: [:show, :edit, :update]
-    resources :profiles, only: [:new, :edit, :create, :update]
   end
+
+  resources :profiles, only: [:new, :edit, :create, :update]
+
   resources :categories do
     resources :products
   end

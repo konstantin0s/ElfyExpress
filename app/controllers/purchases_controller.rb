@@ -17,7 +17,6 @@ class PurchasesController < ApplicationController
   def edit
 
   end
-end
 
 private
 
@@ -31,3 +30,4 @@ private
       .permit(
       )
   end
+end
