@@ -8,9 +8,19 @@ class Purchase < ApplicationRecord
   validates :total_amount, presence: true
 
   def set_total_price
+    price = 0
+    self.selections.each do |selection|
+      price += selection.total_price
+    end
+    return price
   end
 
   def set_total_amount
+    amount = 0
+    self.selections.each do |selection|
+      amount += selection.amount
+    end
+    return amount
   end
 
 end
