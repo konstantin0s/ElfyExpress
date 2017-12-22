@@ -6,11 +6,10 @@ Rails.application.routes.draw do
 
 
 
-  resources :users do
-    resources :purchases, only: [:show, :edit, :update]
-  end
-
+  resources :users, only: [:show]
+  resources :purchases, only: [:show, :edit, :update]
   resources :profiles, only: [:new, :edit, :create, :update]
+
 
   resources :categories do
     resources :products
