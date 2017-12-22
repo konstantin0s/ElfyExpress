@@ -11,6 +11,7 @@
     height: 100%;
     z-index: 10000;
     transition: all .4s ease 0s;
+
 }
 
 .sidebar-nav {
@@ -20,7 +21,9 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
 }
+
 #page-content-wrapper {
     padding-left: 0;
     margin-left: 0;
@@ -88,7 +91,7 @@
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: #999999;
+  color: #red;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {

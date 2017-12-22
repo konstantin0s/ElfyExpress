@@ -4,14 +4,10 @@
            <li class="sidebar-brand"></li>
       </ul>
         <ul class="sidebar-nav" id="sidebar">
-          <li><a>Categorie<span class="sub_icon glyphicon glyphicon-tag"></span></a></li>
-          <li><a>Categorie<span class="sub_icon glyphicon glyphicon-tag"></span></a></li>
-          <li><a>Categorie<span class="sub_icon glyphicon glyphicon-tag"></span></a></li>
-          <li><a>Categorie<span class="sub_icon glyphicon glyphicon-tag"></span></a></li>
-          <li><a>Categorie<span class="sub_icon glyphicon glyphicon-tag"></span></a></li>
-          <li><a>Categorie<span class="sub_icon glyphicon glyphicon-tag"></span></a></li>
-          <li><a>Categorie<span class="sub_icon glyphicon glyphicon-tag"></span></a></li>
-          <li><a>Categorie<span class="sub_icon glyphicon glyphicon-tag"></span></a></li>
-        </ul>
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name, category_path(category.id) %></li>
+          <% end %>
+
+          </ul>
       </div>
 </div>
