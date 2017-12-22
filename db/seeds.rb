@@ -68,3 +68,10 @@ product7 = Product.create! (
   description: "Warm and fluffy. Get your Santa's socks today before stock runs out.",
   category_id: ornaments.id,
   image_url: "#"} )
+
+purchases = Purchase.create!({
+  total_price: 50,
+  user: user1,
+  total_amount: 50,
+  }
+)
