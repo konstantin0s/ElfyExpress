@@ -1,10 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update]
 
-  def index
-    @categories = Category.all
-  end
-
   def show
     @products = @category.products
   end
