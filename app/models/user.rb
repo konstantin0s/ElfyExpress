@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :purchases, dependent: :destroy
 
   def full_name
-    profile.full_name
+    return profile.full_name if profile?
+    email
   end
 
   def profile?
