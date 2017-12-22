@@ -1,6 +1,36 @@
-<h3> Products under this category </h3>
-<% Product.where(category_id: @category.id).each do |product| %>
-<li> <%= product.name %> </li>
-<% end %>
+<html !DOCTYPE>
+<head>
+    <title>Bootstrap 3 Collapsible Sidebar</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
 
-<h1>Show page - Categories</h1>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<h3><%= @product.name %> </h3>
+<h4>€ <%= number_with_precision(@product.price, :precision => 2) %></h4>
+
+<p><%= @product.description %></p>
+
+<%= form_for [@product, @product.selections.new] do |f| %>
+<div class="form-group">
+  <label class="col-lg-1">Amount:</label>
+    <div class="col-lg-2">
+      <%= f.number_field :amount, placeholder: "eg. 5", class: "form-control" %>
+    </div>
+</div>
+
+<div class="actions">
+  <%= f.submit "Buy", class: "btn btn-primary" %>
+</div>
+
+<% end %>
