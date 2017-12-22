@@ -8,6 +8,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <% @categories = Category.all %>
+  
   <body>
     <%= render "shared/navbar" %>
     <div class="container">
